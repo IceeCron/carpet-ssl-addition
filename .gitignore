@@ -1,0 +1,12 @@
+build/
+bin/
+*.class
+*.log
+*.tmp
+/.gradle/
+/.idea/
+*.iml
+out/
+*.jar
+*.keystore
+local.properties

@@ -1,0 +1,91 @@
+plugins {
+	id "net.fabricmc.fabric-loom" version "1.15-SNAPSHOT"
+	id "maven-publish"
+}
+
+version = project.property("mod.version")
+group = project.property("maven_group")
+
+base {
+	archivesName = project.archives_base_name
+}
+
+repositories {
+	maven {
+		name = "AliyunMaven"
+		url = uri("https://maven.aliyun.com/repository/central")
+	}
+	maven {
+		name = "MasaMaven"
+		url = uri("https://masa.dy.fi/maven")
+	}
+	maven {
+		name = "Modrinth"
+		url = uri("https://api.modrinth.com/maven")
+	}
+	maven {
+		name = "Fabric"
+		url = uri("https://maven.fabricmc.net/")
+	}
+	flatDir {
+		dirs = ['libs']
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.property("dependencies.minecraft_version")}"
+	
+	implementation "net.fabricmc:fabric-loader:${project.property("dependencies.loader_version")}"
+
+	implementation files("libs/fabric-carpet-26.1+v260402.jar")
+
+	compileOnly 'org.projectlombok:lombok:1.18.38'
+	annotationProcessor 'org.projectlombok:lombok:1.18.38'
+}
+
+processResources {
+	inputs.property "version", project.property("mod.version")
+
+	filesMatching("fabric.mod.json") {
+		def valueMap = [
+				"id"	               : project.property("mod.id"),
+				"name"                 : project.property("mod.name"),
+				"description"          : project.property("mod.description"),
+				"version"              : project.property("mod.version"),
+				"loader_version"       : project.property("dependencies.loader_version"),
+				"minecraft_dependency" : project.property("dependencies.minecraft_dependency")
+		]
+		expand valueMap
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+	it.options.encoding = "UTF-8"
+}
+
+java {
+	withSourcesJar()
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+def archiveBaseName = project.base.archivesName.get()
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${archiveBaseName}" }
+	}
+}
+
+publishing {
+	publications {
+		create("mavenJava", MavenPublication) {
+			artifactId = project.archives_base_name
+			from components.java
+		}
+	}
+	repositories {
+		mavenLocal()
+	}
+}

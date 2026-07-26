@@ -1,0 +1,35 @@
+{
+  "carpet.category.carpet_ssl_addition": "SSL",
+
+  "carpet.rule.scheduledRandomTickCactus.name": "计划刻催熟仙人掌",
+  "carpet.rule.scheduledRandomTickCactus.desc": "当仙人掌方块收到计划刻时仍会给予生长随机刻",
+
+  "carpet.rule.noteBlockChunkLoader.name": "音符盒区块加载",
+  "carpet.rule.noteBlockChunkLoader.desc": "音符盒方块被激活时将加载周围3x3区块15s",
+  "carpet.rule.noteBlockChunkLoader.extra.0": "[bone_block] - 音符盒上方有骨块可以触发加载",
+  "carpet.rule.noteBlockChunkLoader.extra.1": "[wither_skeleton_skull] - 音符盒上有凋灵骷髅头（可以是挂在墙上的也可以是放在音符盒上的）时可以触发加载",
+  "carpet.rule.noteBlockChunkLoader.extra.2": "[note_block]：无需条件，只有音符盒即可加载",
+  "carpet.rule.noteBlockChunkLoader.extra.3": "[OFF] - 禁用该规则",
+
+  "carpet.rule.pistonBlockChunkLoader.name": "活塞头区块加载",
+  "carpet.rule.pistonBlockChunkLoader.desc": "活塞或黏性活塞被激活且能正常伸出时以活塞头将到达的区块为中心加载3x3区块持续15s",
+  "carpet.rule.pistonBlockChunkLoader.extra.0": "[bone_block] - 当活塞/黏性活塞上方有骨块时",
+  "carpet.rule.pistonBlockChunkLoader.extra.1": "[bedrock] - 当活塞/黏性活塞下方有基岩时",
+  "carpet.rule.pistonBlockChunkLoader.extra.2": "[all] - 当活塞/黏性活塞上方有骨块或下方有基岩时",
+  "carpet.rule.pistonBlockChunkLoader.extra.3": "[OFF] - 禁用该规则",
+
+  "carpet.rule.softDeepslate.name": "易碎深板岩",
+  "carpet.rule.softDeepslate.desc": "改变深板岩的硬度使其和普通石头一致",
+
+  "carpet.rule.softObsidian.name": "易碎黑曜石",
+  "carpet.rule.softObsidian.desc": "改变黑曜石的硬度使其和末地石一致",
+
+  "carpet.rule.endGatewayDoNotAddLoadTicket.name": "取消折跃门加载票",
+  "carpet.rule.endGatewayDoNotAddLoadTicket.desc": "当返回折跃门底下方块为设定的方块时, 在穿过时不会添加加载票",
+
+  "carpet.rule.fixExtendedPistonDeleteFrontBlock.name": "修复无头活塞删除方块",
+  "carpet.rule.fixExtendedPistonDeleteFrontBlock.desc": "修复无头活塞收回能删除前方任何方块",
+
+  "carpet.rule.enderPearlChunkLoader.name": "珍珠自加载",
+  "carpet.rule.enderPearlChunkLoader.desc": "允许珍珠飞行时自行加载区块 (方法来自MC 1.21.2)"
+}

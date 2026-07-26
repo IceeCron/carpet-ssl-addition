@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "${id}",
+	"version": "${version}",
+	"name": "${name}",
+	"description": "${description}",
+	"authors": [
+		"IceCron"
+	],
+	"contact": {
+		"homepage": "https://github.com/IceeCron",
+		"sources": "https://github.com/IceeCron/carpet-ssl-addition"
+	},
+	"license": "LGPL-v3",
+	"icon": "assets/carpet-ssl-addition/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.icecron.CarpetSslAddition"
+		]
+	},
+	"mixins": [
+		"carpet-ssl-addition.mixins.json"
+	],
+	"depends": {
+		"minecraft": ">26.0",
+		"fabricloader": ">=0.18.4",
+		"java": ">=25"
+	}
+}
