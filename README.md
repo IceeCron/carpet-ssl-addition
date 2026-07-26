@@ -11,7 +11,6 @@ Highlights:
 - Renamed project to `carpet-ssl-addition` and new author `IceCron`.
 - Mod ID changed to `carpet-ssl-addition`, version `1.2.0`.
 - Updated resource paths and translations; improved README and packaging.
-- Removed AI-generated traces and cleaned generated build files.
 - Bug fixes and improvements: piston deletion fix, end gateway load ticket handling, multiple chunk-loading features and translations.
 
 ## Changelog (since previous release)
