@@ -31,5 +31,17 @@
   "carpet.rule.fixExtendedPistonDeleteFrontBlock.desc": "Fix extended piston retraction can delete any front block",
 
   "carpet.rule.enderPearlChunkLoader.name": "enderPearlChunkLoader",
-  "carpet.rule.enderPearlChunkLoader.desc": "EnderPearl can load chunk (from Minecraft 1.21.2)"
+  "carpet.rule.enderPearlChunkLoader.desc": "EnderPearl can load chunk (from Minecraft 1.21.2)",
+
+  "carpet.rule.dolphinPickupIntercept.name": "dolphinPickupIntercept",
+  "carpet.rule.dolphinPickupIntercept.desc": "Intercept Dolphin pickup to prevent equipping items (restore 1.21.8 behavior).",
+
+  "carpet.rule.dolphinThrowWindowTicks.name": "dolphinThrowWindowTicks",
+  "carpet.rule.dolphinThrowWindowTicks.desc": "Window length in ticks to count dolphin throws (default 40)",
+
+  "carpet.rule.dolphinThrowMaxPerWindow.name": "dolphinThrowMaxPerWindow",
+  "carpet.rule.dolphinThrowMaxPerWindow.desc": "Max number of items a dolphin can throw within the window (default 5)",
+
+  "carpet.rule.dolphinThrowPenaltyPickupDelay.name": "dolphinThrowPenaltyPickupDelay",
+  "carpet.rule.dolphinThrowPenaltyPickupDelay.desc": "Pickup delay (ticks) applied to items when a dolphin is rate-limited (default 40)"
 }

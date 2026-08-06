@@ -28,4 +28,17 @@ public class CarpetSslAdditionSettings {
 
     @Rule(categories = { SSL })
     public static boolean enderPearlChunkLoader = false;
+
+    @Rule(categories = { SSL })
+    public static boolean dolphinPickupIntercept = true;
+
+    @Rule(categories = { SSL })
+    public static int dolphinThrowWindowTicks = 40; // sliding window in ticks
+
+    @Rule(categories = { SSL })
+    public static int dolphinThrowMaxPerWindow = 5; // max throws per window
+
+    @Rule(categories = { SSL })
+    public static int dolphinThrowPenaltyPickupDelay = 40; // ticks to set pickup delay when rate limited
 }
+

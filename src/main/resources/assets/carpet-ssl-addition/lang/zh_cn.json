@@ -31,5 +31,17 @@
   "carpet.rule.fixExtendedPistonDeleteFrontBlock.desc": "修复无头活塞收回能删除前方任何方块",
 
   "carpet.rule.enderPearlChunkLoader.name": "珍珠自加载",
-  "carpet.rule.enderPearlChunkLoader.desc": "允许珍珠飞行时自行加载区块 (方法来自MC 1.21.2)"
+  "carpet.rule.enderPearlChunkLoader.desc": "允许珍珠飞行时自行加载区块 (方法来自MC 1.21.2)",
+
+  "carpet.rule.dolphinPickupIntercept.name": "海豚拾取拦截",
+  "carpet.rule.dolphinPickupIntercept.desc": "拦截海豚拾取并阻止将物品放入主手（还原 1.21.8 行为）",
+
+  "carpet.rule.dolphinThrowWindowTicks.name": "海豚丢弃计数窗口（刻）",
+  "carpet.rule.dolphinThrowWindowTicks.desc": "统计海豚丢弃次数的窗口长度（刻），默认 40",
+
+  "carpet.rule.dolphinThrowMaxPerWindow.name": "海豚丢弃上限（窗口内）",
+  "carpet.rule.dolphinThrowMaxPerWindow.desc": "海豚在窗口内允许丢出的最大物品数量，默认 5",
+
+  "carpet.rule.dolphinThrowPenaltyPickupDelay.name": "海豚丢弃速率限制惩罚（拾取延迟）",
+  "carpet.rule.dolphinThrowPenaltyPickupDelay.desc": "当因速率限制未被抛出时应用于掉落物的拾取延迟（刻），默认 40"
 }
