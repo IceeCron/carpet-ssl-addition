@@ -2,29 +2,19 @@
 
 A Fabric mod that adds Carpet rules to adjust and fix certain Minecraft behaviors.
 
-## Release v1.2.0
+## Release v1.3.0
 
-Release date: 2026-07-26
+Release date: 2026-08-6
 
 Highlights:
 
-- Renamed project to `carpet-ssl-addition` and new author `IceCron`.
-- Mod ID changed to `carpet-ssl-addition`, version `1.2.0`.
+- Added Dolphin pickup interception to restore 1.21.8-style behavior in 26.1.x, preventing item equip animation lock and enabling controlled dolphin item throwing.
+- Added rate limiting for dolphin throws to prevent excessive instant item launches.
 - Updated resource paths and translations; improved README and packaging.
-- Bug fixes and improvements: piston deletion fix, end gateway load ticket handling, multiple chunk-loading features and translations.
 
 ## Changelog (since previous release)
 
-- Refactor: project and package metadata updated (mod id, archives_base_name).
-- Fix: prevent extended pistons from deleting front blocks.
-- Fix: optional suppression of end gateway load tickets by config.
-- Feature: note block / piston / ender pearl chunk loaders improved.
-- Docs: README cleanup, clearer usage examples and build instructions.
-
-## Upgrade Notes
-
-- If upgrading from older releases, remove the old `fmca` mod from your `mods/` folder and replace with the new `carpet-ssl-addition` jar.
-- Config keys and rule names remain the same; categories now use the `carpet_ssl_addition_*` prefix internally.
+- Feature: dolphin pickup interception and throw rate limiting.
 
 ## Contact & Source
 
@@ -44,16 +34,12 @@ Highlights:
 - **Soft Deepslate**: Makes deepslate as easy to mine as stone
 - **Soft Obsidian**: Makes obsidian as easy to mine as end stone
 - **Scheduled Random Tick Cactus**: Cacti accept scheduled ticks as random ticks
-
-### Bug Fixes
-
-- **Fix Extended Piston Delete Front Block**: Fixes bug where extended pistons can delete any front block
-- **End Gateway No Load Ticket**: Prevents load tickets when passing through end gates
+- **dolphin pickup interception and throw rate limiting.**
 
 ## Requirements
 
-- Minecraft: 1.21.8
-- Fabric Loader: 0.18.4+
+- Minecraft: 26.1.2
+- Fabric Loader: 0.19.3+
 - Carpet Mod: compatible versions
 
 ## Installation
@@ -80,6 +66,15 @@ All commands use the Carpet format: `/carpet <rule> <value>`
 /carpet softDeepslate [true|false]
 /carpet softObsidian [true|false]
 /carpet scheduledRandomTickCactus [true|false]
+/carpet dolphinPickupIntercept [true|false]
+```
+
+### Dolphin Rate Limit Rules
+
+```
+/carpet dolphinThrowWindowTicks [integer]
+/carpet dolphinThrowMaxPerWindow [integer]
+/carpet dolphinThrowPenaltyPickupDelay [integer]
 ```
 
 ### Fix Rules
