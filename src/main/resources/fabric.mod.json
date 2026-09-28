@@ -9,7 +9,8 @@
 	],
 	"contact": {
 		"homepage": "https://github.com/IceeCron",
-		"sources": "https://github.com/IceeCron/carpet-ssl-addition"
+		"sources": "https://github.com/IceeCron/carpet-ssl-addition",
+		"issues": "https://github.com/IceeCron/carpet-ssl-addition/issues"
 	},
 	"license": "LGPL-v3",
 	"icon": "assets/carpet-ssl-addition/icon.png",
@@ -23,6 +24,7 @@
 		"carpet-ssl-addition.mixins.json"
 	],
 	"depends": {
+		"carpet": "*",
 		"minecraft": ">26.0",
 		"fabricloader": ">=0.18.4",
 		"java": ">=25"

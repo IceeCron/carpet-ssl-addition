@@ -3,12 +3,9 @@
   "package": "io.github.icecron.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "MixinBlockStateBase",
-    "MixinCactusBlock",
     "MixinEndGatewayBlock",
-    "MixinNoteBlock",
-    "MixinPistonBaseBlock",
-    "MixinThrownEnderpearl"
+    "MixinDolphinPickup",
+    "MixinTheEndGatewayBlockEntityAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,35 +1,12 @@
 {
   "carpet.category.carpet_ssl_addition": "SSL",
-
-  "carpet.rule.scheduledRandomTickCactus.name": "scheduledRandomTickCactus",
-  "carpet.rule.scheduledRandomTickCactus.desc": "Make cactus accepts scheduled tick as random tick",
-
-  "carpet.rule.noteBlockChunkLoader.name": "noteBlockChunkLoader",
-  "carpet.rule.noteBlockChunkLoader.desc": "Load nearby 3x3 chunks for 15 seconds when a note block is triggered",
-  "carpet.rule.noteBlockChunkLoader.extra.0": "[bone_block] - When bone_block is on the note_block",
-  "carpet.rule.noteBlockChunkLoader.extra.1": "[bedrock] - When wither_skeleton_skull is on the note_block, either placed on the note block or hanging on the wall",
-  "carpet.rule.noteBlockChunkLoader.extra.2": "[all] - Only note_block",
-  "carpet.rule.noteBlockChunkLoader.extra.3": "[OFF] - Disable the rule",
-
-  "carpet.rule.pistonBlockChunkLoader.name": "pistonBlockChunkLoader",
-  "carpet.rule.pistonBlockChunkLoader.desc": "Load nearby 3x3 chunks for 15 seconds when a piston is triggered (Centered on the piston head)",
-  "carpet.rule.pistonBlockChunkLoader.extra.0": "[bone_block] - When bone_block is on the piston",
-  "carpet.rule.pistonBlockChunkLoader.extra.1": "[bedrock] - When bedrock is under the piston",
-  "carpet.rule.pistonBlockChunkLoader.extra.2": "[all] - When bone_block is on the piston or bedrock is under the piston",
-  "carpet.rule.pistonBlockChunkLoader.extra.3": "[OFF] - Disable the rule",
-
-  "carpet.rule.softDeepslate.name": "softDeepslate",
-  "carpet.rule.softDeepslate.desc": "Change the hardness of deepslate to stone",
-
-  "carpet.rule.softObsidian.name": "softObsidian",
-  "carpet.rule.softObsidian.desc": "Change the hardness of obsidian to end stone",
-
   "carpet.rule.endGatewayDoNotAddLoadTicket.name": "endGatewayDoNotAddLoadTicket",
-  "carpet.rule.endGatewayDoNotAddLoadTicket.desc": "Do not add load ticket when through into endGateway",
-
-  "carpet.rule.fixExtendedPistonDeleteFrontBlock.name": "fixExtendedPistonDeleteFrontBlock",
-  "carpet.rule.fixExtendedPistonDeleteFrontBlock.desc": "Fix extended piston retraction can delete any front block",
-
-  "carpet.rule.enderPearlChunkLoader.name": "enderPearlChunkLoader",
-  "carpet.rule.enderPearlChunkLoader.desc": "EnderPearl can load chunk (from Minecraft 1.21.2)"
+  "carpet.rule.endGatewayDoNotAddLoadTicket.desc": "Do not add a chunk ticket after teleporting when the gateway is below the configured block",
+  "carpet.rule.endGatewayDoNotAddLoadTicket.extra.0": "[bone_block] - Apply when a bone block is below the gateway",
+  "carpet.rule.endGatewayDoNotAddLoadTicket.extra.1": "[all] - Apply to all gateways",
+  "carpet.rule.endGatewayDoNotAddLoadTicket.extra.2": "[OFF] - Disable this rule",
+  "carpet.rule.dolphinPickupIntercept.name": "dolphinPickupIntercept",
+  "carpet.rule.dolphinPickupIntercept.desc": "Intercept dolphin pickup to prevent equipping items, restore 1.21.8 behavior, and limit repeated throws",
+  "carpet.rule.endGatewayCustomLanding.name": "endGatewayCustomLanding",
+  "carpet.rule.endGatewayCustomLanding.desc": "When returning from an outer-island gateway, land on the first safe adjacent block east, west, south, or north of an emerald block below the target gateway; otherwise use the vanilla landing position"
 }

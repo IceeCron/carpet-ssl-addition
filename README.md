@@ -1,88 +1,33 @@
-# carpet-ssl-addition
+# Carpet SSL Addition
 
-A Fabric mod that adds Carpet rules to adjust and fix certain Minecraft behaviors.
+A Fabric mod that adds a small set of Carpet rules for End gateways and dolphin item pickup.
 
-## Release v1.3.0
-
-Release date: 2026-08-6
-
-Highlights:
-
-- Added Dolphin pickup interception to restore 1.21.8-style behavior in 26.1.x, preventing item equip animation lock and enabling controlled dolphin item throwing.
-- Added rate limiting for dolphin throws to prevent excessive instant item launches.
-- Updated resource paths and translations; improved README and packaging.
-
-## Changelog (since previous release)
-
-- Feature: dolphin pickup interception and throw rate limiting.
-
-## Contact & Source
-
-- GitHub: https://github.com/IceeCron/carpet-ssl-addition
-- Author: IceCron — https://github.com/IceeCron
+Current version: **2.0.0**
 
 ## Features
 
-### Chunk Loading
-
-- **Note Block Chunk Loader**: Load 3x3 chunks when a note block is triggered
-- **Piston Chunk Loader**: Load chunks when pistons are activated
-- **Ender Pearl Chunk Loader**: Ender pearls load chunks during flight
-
-### Game Modifications
-
-- **Soft Deepslate**: Makes deepslate as easy to mine as stone
-- **Soft Obsidian**: Makes obsidian as easy to mine as end stone
-- **Scheduled Random Tick Cactus**: Cacti accept scheduled ticks as random ticks
-- **dolphin pickup interception and throw rate limiting.**
+- **End gateway chunk-ticket control**: Skip the post-teleport chunk ticket for all gateways or gateways with a bone block underneath.
+- **End gateway custom landing**: On a return trip from an outer-island gateway, detect an emerald block below the target gateway and land on the first safe adjacent block. If no safe adjacent position exists, vanilla landing behavior is used.
+- **Dolphin pickup interception**: Restore 1.21.8-style item throwing and prevent dolphins from equipping picked-up items. Throws are limited to 5 per 40 ticks; rate-limited items receive a 40-tick pickup delay.
 
 ## Requirements
 
-- Minecraft: 26.1.2
-- Fabric Loader: 0.19.3+
-- Carpet Mod: compatible versions
-
-## Installation
-
-1. Install Fabric Loader
-2. Install Carpet Mod
-3. Place this mod in your mods folder
+- Minecraft 26.1.2
+- Fabric Loader 0.18.4 or newer
+- Fabric Carpet Mod compatible with Minecraft 26.1.2
+- Java 25 or newer
 
 ## Usage
 
-All commands use the Carpet format: `/carpet <rule> <value>`
+All rules use the Carpet format: `/carpet <rule> <value>`.
 
-### Chunk Loading Rules
-
-```
-/carpet noteBlockChunkLoader [bone_block|wither_skeleton_skull|note_block|OFF]
-/carpet pistonBlockChunkLoader [bone_block|bedrock|all|OFF]
-/carpet enderPearlChunkLoader [true|false]
-```
-
-### Modification Rules
-
-```
-/carpet softDeepslate [true|false]
-/carpet softObsidian [true|false]
-/carpet scheduledRandomTickCactus [true|false]
+```text
+/carpet endGatewayDoNotAddLoadTicket [bone_block|all|OFF]
+/carpet endGatewayCustomLanding [true|false]
 /carpet dolphinPickupIntercept [true|false]
 ```
 
-### Dolphin Rate Limit Rules
-
-```
-/carpet dolphinThrowWindowTicks [integer]
-/carpet dolphinThrowMaxPerWindow [integer]
-/carpet dolphinThrowPenaltyPickupDelay [integer]
-```
-
-### Fix Rules
-
-```
-/carpet fixExtendedPistonDeleteFrontBlock [true|false]
-/carpet endGatewayDoNotAddLoadTicket [bone_block|all|OFF]
-```
+With `endGatewayCustomLanding` enabled, the landing search checks east, west, south, then north of the emerald marker. A candidate needs a solid supporting block and enough collision-free space for the arriving entity.
 
 ## Building
 

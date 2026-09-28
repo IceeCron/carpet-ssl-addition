@@ -37,7 +37,7 @@ dependencies {
 	
 	implementation "net.fabricmc:fabric-loader:${project.property("dependencies.loader_version")}"
 
-	implementation files("libs/fabric-carpet-26.1+v260402.jar")
+	implementation fileTree(dir: "libs", include: ["*fabric-carpet-*.jar"])
 
 	compileOnly 'org.projectlombok:lombok:1.18.38'
 	annotationProcessor 'org.projectlombok:lombok:1.18.38'

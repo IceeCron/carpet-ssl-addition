@@ -1,6 +1,7 @@
 package io.github.icecron.mixin;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Relative;
@@ -8,7 +9,6 @@ import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrownEnder
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EndGatewayBlock;
 import net.minecraft.world.level.block.entity.TheEndGatewayBlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
@@ -42,6 +42,36 @@ public abstract class MixinEndGatewayBlock {
             return;
         }
 
+        boolean doNotAddTicket = CarpetSslAdditionSettings.endGatewayDoNotAddLoadTicket.equals("all")
+                || (CarpetSslAdditionSettings.endGatewayDoNotAddLoadTicket.equals("bone_block")
+                        && serverLevel.getBlockState(blockPos.below()).is(Blocks.BONE_BLOCK));
+
+        if (CarpetSslAdditionSettings.endGatewayCustomLanding) {
+            BlockPos exitGatewayPos = ((MixinTheEndGatewayBlockEntityAccessor) blockEntity).ssl$getExitPortal();
+            if (exitGatewayPos != null && serverLevel.getBlockState(exitGatewayPos.below()).is(Blocks.EMERALD_BLOCK)) {
+                BlockPos markerPos = exitGatewayPos.below();
+                for (Direction direction : new Direction[] { Direction.EAST, Direction.WEST, Direction.SOUTH, Direction.NORTH }) {
+                    BlockPos landingBlock = markerPos.relative(direction);
+                    BlockPos landingFeet = landingBlock.above();
+                    Vec3 landingPosition = Vec3.atBottomCenterOf(landingFeet);
+                    if (serverLevel.getBlockState(landingBlock).isCollisionShapeFullBlock(serverLevel, landingBlock)
+                            && serverLevel.noCollision(entity, entity.getBoundingBox().move(landingPosition.subtract(entity.position())))) {
+                        TeleportTransition transition = new TeleportTransition(
+                                serverLevel,
+                                landingPosition,
+                                Vec3.ZERO,
+                                0.0F,
+                                0.0F,
+                                entity instanceof ThrownEnderpearl ? Set.of()
+                                        : Relative.union(Relative.DELTA, Relative.ROTATION),
+                                doNotAddTicket ? TeleportTransition.DO_NOTHING : TeleportTransition.PLACE_PORTAL_TICKET);
+                        cir.setReturnValue(transition);
+                        return;
+                    }
+                }
+            }
+        }
+
         TeleportTransition dimensionTransition = new TeleportTransition(
                 serverLevel,
                 vec3,
@@ -49,16 +79,11 @@ public abstract class MixinEndGatewayBlock {
                 0.0F,
                 0.0F,
                 entity instanceof ThrownEnderpearl ? Set.of()
-                        : Relative.union(new Set[] { Relative.DELTA, Relative.ROTATION }),
+                        : Relative.union(Relative.DELTA, Relative.ROTATION),
                 TeleportTransition.DO_NOTHING);
 
-        if (CarpetSslAdditionSettings.endGatewayDoNotAddLoadTicket.equals("all")) {
+        if (doNotAddTicket) {
             cir.setReturnValue(dimensionTransition);
-        } else if (CarpetSslAdditionSettings.endGatewayDoNotAddLoadTicket.equals("bone_block")) {
-            BlockState blockState = serverLevel.getBlockState(blockPos.below());
-            if (blockState.getBlock() == Blocks.BONE_BLOCK) {
-                cir.setReturnValue(dimensionTransition);
-            }
         }
     }
 }
