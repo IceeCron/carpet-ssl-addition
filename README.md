@@ -2,13 +2,13 @@
 
 A Fabric mod that adds a small set of Carpet rules for End gateways and dolphin item pickup.
 
-Current version: **2.0.0**
+Current version: **2.1.0**
 
 ## Features
 
 - **End gateway chunk-ticket control**: Skip the post-teleport chunk ticket for all gateways or gateways with a bone block underneath.
 - **End gateway custom landing**: On a return trip from an outer-island gateway, detect an emerald block below the target gateway and land on the first safe adjacent block. If no safe adjacent position exists, vanilla landing behavior is used.
-- **Dolphin pickup interception**: Restore 1.21.8-style item throwing and prevent dolphins from equipping picked-up items. Throws are limited to 5 per 40 ticks; rate-limited items receive a 40-tick pickup delay.
+- **Dolphin pickup interception**: Restore 1.21.8-style item throwing and prevent dolphins from equipping picked-up items. Regular dolphins are limited to 5 throws per 40 ticks; dolphins named `fast` are limited to 10 throws per 20 ticks. Rate-limited items receive a 40-tick pickup delay.
 
 ## Requirements
 

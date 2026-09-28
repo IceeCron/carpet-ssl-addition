@@ -40,8 +40,10 @@ public abstract class MixinDolphinPickup {
 
         // Rate limiting: sliding window based on world game time
         long now = level.getGameTime();
-        int window = 40;
-        int max = 5;
+        boolean fastDolphin = self.hasCustomName()
+                && "fast".equals(self.getCustomName().getString());
+        int window = fastDolphin ? 20 : 40;
+        int max = fastDolphin ? 10 : 5;
         int penalty = 40;
 
         if (now - this.ssl_dolphinThrowWindowStart >= window) {
