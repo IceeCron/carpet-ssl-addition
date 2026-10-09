@@ -42,12 +42,15 @@ public abstract class MixinEndGatewayBlock {
             return;
         }
 
+        BlockPos exitGatewayPos = ((MixinTheEndGatewayBlockEntityAccessor) blockEntity).ssl$getExitPortal();
+        boolean boneBlockUnderEntry = serverLevel.getBlockState(blockPos.below()).is(Blocks.BONE_BLOCK);
+        boolean boneBlockUnderExit = exitGatewayPos != null
+                && serverLevel.getBlockState(exitGatewayPos.below()).is(Blocks.BONE_BLOCK);
         boolean doNotAddTicket = CarpetSslAdditionSettings.endGatewayDoNotAddLoadTicket.equals("all")
                 || (CarpetSslAdditionSettings.endGatewayDoNotAddLoadTicket.equals("bone_block")
-                        && serverLevel.getBlockState(blockPos.below()).is(Blocks.BONE_BLOCK));
+                        && (boneBlockUnderEntry || boneBlockUnderExit));
 
         if (CarpetSslAdditionSettings.endGatewayCustomLanding) {
-            BlockPos exitGatewayPos = ((MixinTheEndGatewayBlockEntityAccessor) blockEntity).ssl$getExitPortal();
             if (exitGatewayPos != null && serverLevel.getBlockState(exitGatewayPos.below()).is(Blocks.EMERALD_BLOCK)) {
                 BlockPos markerPos = exitGatewayPos.below();
                 for (Direction direction : new Direction[] { Direction.EAST, Direction.WEST, Direction.SOUTH, Direction.NORTH }) {

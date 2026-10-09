@@ -2,7 +2,7 @@
 
 A Fabric mod that adds a small set of Carpet rules for End gateways and dolphin item pickup.
 
-Current version: **2.1.0**
+Current version: **2.1.1**
 
 ## Features
 
